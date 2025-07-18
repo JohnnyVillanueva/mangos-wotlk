@@ -159,7 +159,7 @@ jobs:
           echo "PB_AB_ARCH_NAME=${projectNames}-with-playerbot-ahbot-${shortSHA}.zip" >> $GITHUB_ENV
 
       - name: Notify
-        uses: rjstone/discord-webhook-notify@v2.2.1
+        uses: rjstone/discord-webhook-notify@v1.0.4
         with:
           severity: info
           description: |
@@ -180,7 +180,7 @@ jobs:
 
   notify:
     name: Send Notification to Discord on Failure
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     permissions:
       contents: none
     needs: # make sure the notification is sent AFTER the jobs you want included have completed
@@ -194,7 +194,7 @@ jobs:
           echo "GIT_SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
       - name: Notify
-        uses: rjstone/discord-webhook-notify@v2.2.1
+        uses: rjstone/discord-webhook-notify@v1.0.4
         with:
           severity: error
           description: |
